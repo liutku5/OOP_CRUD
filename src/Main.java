@@ -26,8 +26,8 @@ public class Main {
                     case 5:
                         System.exit(1);
                 }
+                break;
             }
-
         }
     }
 }

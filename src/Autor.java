@@ -33,10 +33,10 @@ public class Autor {
     public static void printInfoMessege() {
         System.out.println();
         System.out.println("--------------------------");
-        System.out.println("1. Enter auter informacion");
-        System.out.println("2. Show auter list");
-        System.out.println("3. Edit auter informacion");
-        System.out.println("4. Remove auter from the list");
+        System.out.println("1. Enter autor informacion");
+        System.out.println("2. Show autor list");
+        System.out.println("3. Edit autor informacion");
+        System.out.println("4. Remove autor from the list");
         System.out.println("5. Close program");
         System.out.println("--------------------------");
         System.out.println();
@@ -51,13 +51,14 @@ public class Autor {
         autor.setSurname(sc.nextLine());
         System.out.println("Enter autor id.");
         autor.setId(sc.nextInt());
+        autorList.add(autor);
 
         if (!autorList.contains(autor.getName()) && !autorList.contains(autor.getSurname())) {
             System.out.println("The author " + autor.getName() + " " + autor.getSurname() + " was added.");
+
         } else {
             System.out.println("The author already exists.");
         }
-        autorList.add(autor);
     }
 
 
@@ -66,44 +67,59 @@ public class Autor {
     }
 
 
-
     public static void changeAutorInfo(ArrayList<Autor> autorList, Scanner sc) {
         printAutor(autorList);
 
-        System.out.println("Enter the auter id you wish to change.");
+        System.out.println("Enter the id of the autor info you wish to change.");
         long oldId = sc.nextLong();
         sc.nextLine();
         for (int i = 0; i < autorList.size(); i++) {
-            if (autorList.get(i).id = oldId) {
-                System.out.println("Enter new auter name.");
+            Autor author = autorList.get(i);
+            if (author.getId() == oldId) {
+                System.out.println("Enter new autor name.");
+                author.setName(sc.nextLine());
+                System.out.println("Enter new autor surname.");
+                author.setSurname(sc.nextLine());
+                System.out.println("The autor was changed successfully.");
+                break;
+            } else {
+                System.out.println("There is no such autor in the list.");
+            }
 
+        }
+    }
+
+
+    public static void removeAutor(ArrayList<Autor> autorList, Scanner sc) {
+
+        System.out.println("Enter the id of the autor you wish to remove.");
+        long oldId = sc.nextLong();
+        sc.nextLine();
+        for (int i = 0; i < autorList.size(); i++) {
+            Autor author = autorList.get(i);
+            if (author.getId() == oldId) {
+                autorList.remove(i);
+                System.out.println("The author with id " + oldId + " was removed.");
+            }
+        }
+        System.out.println("There is no such author with in the list.");
+    }
+
+    public static int intInput(Scanner sc) {
+        while (true) {
+            try {
+                return sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Plese enter a digit");
+                sc.nextLine();
             }
         }
     }
 
 
-        public static void removeAutor (ArrayList < Autor > autorList, Scanner sc){
-        }
-
-        public static int intInput (Scanner sc){
-            while (true) {
-                try {
-                    return sc.nextInt();
-                } catch (Exception e) {
-                    System.out.println("Plese enter a digit");
-                    sc.nextLine();
-                }
-            }
-        }
-
-
     @Override
     public String toString() {
-        return "Autor: " +
-                " name: " + name + '\'' +
-                ", surname: " + surname + '\'' +
-                ", id: " + id +
-                ' ';
+        return "Autor: " + " name: " + name + '\'' + ", surname: " + surname + '\'' + ", id: " + id + ' ';
     }
 }
 
