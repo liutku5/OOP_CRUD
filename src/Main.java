@@ -12,16 +12,16 @@ public class Main {
             while (true) {
                 switch (autor) {
                     case 1:
-                        Author.addAutorInfo(autorList, sc);
+                        Author.addAuthorInfo(autorList, sc);
                         break;
                     case 2:
-                        Author.printAutor(autorList);
+                        Author.printAuthor(autorList);
                         break;
                     case 3:
-                        Author.changeAutorInfo(autorList, sc);
+                        Author.changeAuthorInfo(autorList, sc);
                         break;
                     case 4:
-                        Author.removeAutor(autorList, sc);
+                        Author.removeAuthor(autorList, sc);
                         break;
                     case 5:
                         System.exit(1);

@@ -19,7 +19,7 @@ public class Author {
     }
 
     public static void addAuthorInfo(ArrayList<Author> authorList, Scanner sc) {
-        printAutor(authorList);
+        printAuthor(authorList);
         Author author = new Author();
         System.out.println("Enter author name.");
         author.setName(sc.nextLine());
@@ -44,7 +44,7 @@ public class Author {
     }
 
     public static void changeAuthorInfo(ArrayList<Author> authorList, Scanner sc) {
-        printAutor(authorList);
+        printAuthor(authorList);
 
         System.out.println("Enter the id of the author info you wish to change.");
         long oldId = ValidateInput.longVal(sc);
